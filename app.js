@@ -78,7 +78,7 @@ client.initialize();
 
 app.get('/qr', (req, res) =>{
     if(qrCodeImage){
-        res.send(`<img src="$qrCodeImage" alt="Código QR de WhatsApp"/>`)
+        res.send(`<img src="${qrCodeImage}" alt="Código QR de WhatsApp"/>`)
     } else {
         res.send('<h2>El código QR aún no está disponible, por favor espera...</h2>')
     }
