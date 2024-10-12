@@ -76,7 +76,7 @@ client.on('ready', async () =>{
 client.initialize();
 
 
-app.length('/qr', (req, res) =>{
+app.get('/qr', (req, res) =>{
     if(qrCodeImage){
         res.send(`<img src="$qrCodeImage" alt="Código QR de WhatsApp"/>`)
     } else {
