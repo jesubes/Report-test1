@@ -1,5 +1,5 @@
 const {Client, LocalAuth} = require('whatsapp-web.js')
-const qrcode = require('qrcode-terminal')
+const qrcode = require('qrcode')
 const express = require('express')
 
 
@@ -32,11 +32,18 @@ client.once('ready', () => {
 });
 
 // generar y mostrar el código QR para la primera autenticación
-client.on('qr', (qr) => {
+// client.on('qr', (qr) => {
 
-    qrcode.generate(qr, {small: true})
+//     qrcode.generate(qr, {small: true})
+// });
+client.on('qr', async (qr)=>{
+    console.log('Generando código QR...');
+    qrCodeImage = await qrcode.toDataURL(qr)
+    
+    console.log('Código Generado');
+    
+})
 
-});
 
 //confirmación de que cliente está listo
 client.on('ready', async () =>{
@@ -68,6 +75,14 @@ client.on('ready', async () =>{
 //inicializar el cliente
 client.initialize();
 
+
+app.length('/qr', (req, res) =>{
+    if(qrCodeImage){
+        res.send(`<img src="$qrCodeImage" alt="Código QR de WhatsApp"/>`)
+    } else {
+        res.send('<h2>El código QR aún no está disponible, por favor espera...</h2>')
+    }
+})
 
 
 //Iniciar el servidor
