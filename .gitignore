@@ -1,5 +1,17 @@
-node_modules
-.wwebjs_cache
-.wwebjs_auth
-.vscode
-dockerfile
+/.wwebjs_auth
+/.wwebjs_cache
+/node_modules
+
+#Dockerfile
+Dockerfile
+
+#Ignorar todo el contenido dentro de reporteImage
+reportImage/*
+#No ignorar la carpeta en si
+!reportImage
+
+.DS_Store
+
+
+#
+.env
