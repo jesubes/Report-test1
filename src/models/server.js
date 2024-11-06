@@ -35,7 +35,7 @@ class Server{
         // this.app.use( this.paths.excel, require('../routes/excelConvert'))
         // this.app.use( this.paths.contact, require('../routes/excelConvert.js'))
         //test 
-        this.app.use( this.paths.test, require('../routes/qrCode.js'))
+        this.app.use( this.paths.test, require('../routes/testMsg.js'))
     }
 
     listen() {
