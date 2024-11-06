@@ -1,11 +1,12 @@
 const { Router } = require('express')
-const {qrGenerate } = require('../controllers/qrCodeController.js')
+const {testMessage } = require('../controllers/qrCodeController.js')
 
 const router = Router();
 
 //importar middlewares
 
-router.get('/', qrGenerate)
+
+router.get('/', testMessage)
 
 
 module.exports = router
