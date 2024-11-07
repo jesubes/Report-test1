@@ -5,7 +5,7 @@ const {filterToJSON} = require('../utils/filter.js')
 //Devolver un JSON de los contactos en excel
 const excelToJsonContact = async (req, res) =>{
     try{
-        if(!req.files){
+        if(!req.file){
             return res.status(400).send('No se cargó ningun archivo...')
         }
 
