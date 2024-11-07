@@ -5,6 +5,10 @@ const {excelToJsonContact} = require('../controllers/excelConvertController.js')
 
 const router = Router();
 
+//middleware
 const upload = multer({ storage: multer.memoryStorage() })
 
 router.post('/', upload.single('fileContact'), excelToJsonContact) //todo: ingresar funcion de convertir excel a json de contactos
+
+
+module.exports = router;
