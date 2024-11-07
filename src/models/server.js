@@ -13,7 +13,7 @@ class Server{
             qrcode:     '/api/qrcode',
             // report:     '/api/report',
             // excel:      '/api/excel',
-            // contact:    '/api/contact'
+            contact:    '/api/contact',
             test:       '/api/test'
         }
 
@@ -33,7 +33,7 @@ class Server{
         this.app.use( this.paths.qrcode, require('../routes/qrCode.js'));
         // this.app.use( this.paths.report, require('../routes/report.js'));
         // this.app.use( this.paths.excel, require('../routes/excelConvert'))
-        // this.app.use( this.paths.contact, require('../routes/excelConvert.js'))
+        this.app.use( this.paths.contact, require('../routes/contact.js'))
         //test 
         this.app.use( this.paths.test, require('../routes/testMsg.js'))
     }
