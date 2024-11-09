@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const fs = require('fs')
 
 require('dotenv').config();
 
@@ -17,7 +18,7 @@ class Server{
             test:       '/api/test'
         }
 
-        //this.conectarDB();
+        this.pathReport = './reportImage';
 
         this.middlewares();
         
@@ -38,7 +39,14 @@ class Server{
         this.app.use( this.paths.test, require('../routes/testMsg.js'))
     }
 
+    isPathReport(){
+        if(!fs.existsSync(this.pathReport)) {
+            fs.mkdirSync(this.pathReport)
+        }
+    }
+
     listen() {
+        
         this.app.listen( this.port, ()=>{
             console.log('Servidor corriendo en el puerto --> ', this.port)
         })

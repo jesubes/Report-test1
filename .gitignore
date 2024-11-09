@@ -12,6 +12,6 @@ reportImage/*
 
 .DS_Store
 
-
+# ...
 #
 .env
