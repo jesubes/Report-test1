@@ -11,7 +11,7 @@ class Server{
 
         this.paths ={
             qrcode:     '/api/qrcode',
-            // report:     '/api/report',
+            report:     '/api/report',
             excel:      '/api/excel',
             contact:    '/api/contact',
             test:       '/api/test'
@@ -31,7 +31,7 @@ class Server{
 
     routes() {
         this.app.use( this.paths.qrcode, require('../routes/qrCode.js'));
-        // this.app.use( this.paths.report, require('../routes/report.js'));
+        this.app.use( this.paths.report, require('../routes/reportOut.js'));
         this.app.use( this.paths.excel, require('../routes/excelConvert.js'))
         this.app.use( this.paths.contact, require('../routes/contact.js'))
         //test 
