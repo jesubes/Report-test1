@@ -34,19 +34,7 @@ const jsonToImage = async (jsonData, phone) => {
         <body>
     `;
 
-        /**
-         * const puppeteer = require('puppeteer');
 
-                (async () => {
-                const browser = await puppeteer.launch({
-                    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-                });
-
-                // Tu código con Puppeteer aquí...
-
-                await browser.close();
-                })();
-        */
     //convertir estilo a image
     const browser = await puppeteer.launch({
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
@@ -57,8 +45,10 @@ const jsonToImage = async (jsonData, phone) => {
     //dimensiones
     const rowHeight = 20; //20px por fila
     const totalHeight = Math.min(rowHeight * jsonData.length, 1200);
+
+
     await pageOj.setViewport({
-        with: 900,
+        width: 900,
         height: totalHeight
     })
 
@@ -74,7 +64,6 @@ const jsonToImage = async (jsonData, phone) => {
 
         return false;
     }
-
 }
 
 module.exports = {
