@@ -38,7 +38,7 @@ const reportForMsg = async (req, res) =>{
         console.error('Error al enviar mensaje', error)
         res.status(500).send(`Error al Enviar el mensaje al numero: ${number}`)
     }
-}// todooooooooooo
+}
 
 
 module.exports = {

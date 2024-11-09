@@ -34,8 +34,23 @@ const jsonToImage = async (jsonData, phone) => {
         <body>
     `;
 
+        /**
+         * const puppeteer = require('puppeteer');
+
+                (async () => {
+                const browser = await puppeteer.launch({
+                    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+                });
+
+                // Tu código con Puppeteer aquí...
+
+                await browser.close();
+                })();
+        */
     //convertir estilo a image
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
     const pageOj = await browser.newPage();
     await pageOj.setContent(styledHtml);
 
