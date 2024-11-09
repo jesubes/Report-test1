@@ -40,6 +40,9 @@ const excelExtract = async (req = request, res) => {
             </html>        
         `;
 
+        console.log('html generado del excel Report-Sap');
+        
+
         return res.send(
             styledHtml
         )
