@@ -19,9 +19,7 @@ const reportForMsg = async (req, res) =>{
     const imageJpg = await jsonToImage(jsonData, number)
 
     //datos de whatsapp
-    // const prefix = '549'
     const prefixNumber = `549${number}`
-    // const chatId = `${prefix}${number}@c.us`.toString();
     const mediaWs = MessageMedia.fromFilePath(`./reportImage/materiales${number}.jpg`)
 
     try{
@@ -38,17 +36,6 @@ const reportForMsg = async (req, res) =>{
             console.log('Numero no registrado en WhatsApp');   
         }
 
-        // //
-        // const isRegisterd = await whatsapp.isRegisteredUser(`${contactId._serialized}`)
-        // if(isRegisterd){
-        //     await whatsapp.sendMessage(chatId, `Hola ${name}, \nTe envio el stock en tu almacén: `)
-        //     new Promise(resolve => setTimeout(resolve, 1000))
-        //     const response = await whatsapp.sendMessage(chatId, mediaWs)
-
-        //     console.log('Mensaje enviado -> ', response.fromMe);
-
-        //     return res.send({messageSent : response.fromMe})
-        // }
     } catch( error ){
         console.error('Error al enviar mensaje', error)
         res.status(500).send(`Error al Enviar el mensaje al numero: ${number}`)
