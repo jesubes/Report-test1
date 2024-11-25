@@ -4,8 +4,13 @@ const XLSX = require('xlsx')
 //de un json lo convertimos en images y lo retorna
 const jsonToImage = async (jsonData, phone) => {
 
+    // ordenar de forma ascendente
+    const sortedJsonData = jsonData.sort((a, b) =>
+        a['Texto breve de material'].localeCompare(b['Texto breve de material'])
+    )
+    
     //hay que tener en cuenta que es un array de objeto para crear una hoja de calculo de excel
-    const newWorkSheet = XLSX.utils.json_to_sheet(jsonData)
+    const newWorkSheet = XLSX.utils.json_to_sheet(sortedJsonData)
 
     //convertir a html
     const tableHtml = XLSX.utils.sheet_to_html(newWorkSheet)
